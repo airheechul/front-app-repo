@@ -28,16 +28,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const APP_BACKEND_INGRESS = process.env.REACT_APP_BACKEND_INGRESS;
+const url = `${APP_BACKEND_INGRESS}/services/all`;
+
 function UpperPage() {
     const classes = useStyles();
     const [ data, setState ] = useState({outcome:[]});
-    
-    const APP_BACKEND_INGRESS = process.env.REACT_APP_BACKEND_INGRESS;
-    
-    const url = `${APP_BACKEND_INGRESS}/services/all`;
-    
-    console.log('url => ', url);
-    
+  
     useEffect(() => {
       const fetchData = async () => {
         const result = await axios(

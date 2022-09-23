@@ -38,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const APP_BACKEND_INGRESS = process.env.REACT_APP_BACKEND_INGRESS;
+
 function App(props) {
   console.log("App!!!");
   
@@ -47,10 +49,6 @@ function App(props) {
   const [query, setQuery] = useState('aws');
   const [search, setSearch] = useState('aws');
   
-  const APP_BACKEND_INGRESS = process.env.REACT_APP_BACKEND_INGRESS;
-  
-  console.log("APP_BACKEND_INGRESS:", APP_BACKEND_INGRESS);
-
   var url = `${APP_BACKEND_INGRESS}/contents/${search}`;
 
   useEffect(() => {
