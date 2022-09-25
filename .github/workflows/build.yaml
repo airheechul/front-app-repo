@@ -41,7 +41,7 @@ jobs:
         id: image-info
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: demo-frontend
+          ECR_REPOSITORY: hcjung-frontend
           IMAGE_TAG: ${{ steps.image.outputs.version }}
         run: |
           echo "::set-output name=ecr_repository::$ECR_REPOSITORY"
@@ -85,8 +85,8 @@ jobs:
       - name: Commit files
         run: |
           cd k8s-manifest-repo
-          git config --global user.email "airheechul21@gmail.com"
-          git config --global user.name "airheechul"
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
           git commit -am "Update image tag"
           git push -u origin main
 
